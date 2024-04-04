@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 from dash import Dash, dcc, html, Input, Output, callback, callback_context
 
-df = pd.read_csv("/Users/samyukrishnasamy/Downloads/data.csv")
+df = pd.read_csv("data.csv")
 
 # %%
 ### APP LAYOUT ###
