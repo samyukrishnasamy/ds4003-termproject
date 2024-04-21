@@ -42,7 +42,7 @@ navigation_bar = html.Div([
             html.Button('Activity Graphs', id='button-2', n_clicks=0, className='btn btn-primary m-1'),
             html.Button('Time Graphs', id='button-3', n_clicks=0, className='btn btn-primary m-1'),
             html.Button('More Information', id='button-4', n_clicks=0, className='btn btn-primary m-1'),
-        ], style={'display': 'flex'}),
+        ], style={'display': 'flex', 'gap': '10px'}),
         # GitHub and Original Data Link
         html.Div([
             html.A(
@@ -57,17 +57,19 @@ navigation_bar = html.Div([
                 target='_blank',
                 style={'textDecoration': 'none', 'color': 'black'}  # Consistent styling for all anchors
             ),
-        ], className='d-flex'),
+        ], style={'display': 'flex', 'gap': '10px'}),
     ], className='d-flex justify-content-between bg-light p-3 rounded')
 ], style={
         'display': 'flex',
         'justifyContent': 'space-between',
+        'alignItems': 'center',
         'padding': '10px',
         'backgroundColor': '#f8f9fa',  # Light grey background
         'boxShadow': '0 2px 4px rgba(0,0,0,.1)',  # Shadow for depth
         'position': 'fixed',  # Fixed to the top
         'width': '100%',
-        'zIndex': 1000  # Ensure it's above other content
+        'zIndex': 1000,  # Ensure it's above other content
+        'boxSizing': 'border-box',  # Include padding in width calculation
     })
 
 font_awesome = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
