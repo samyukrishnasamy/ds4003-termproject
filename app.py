@@ -2,14 +2,9 @@
 # import dependencies
 import pandas as pd
 import plotly.express as px
-import dash_bootstrap_components as dbc
-import geopandas as gpd
 from dash import dash, Dash, dcc, html, Input, Output, callback, callback_context, dash_table, State
 import numpy as np 
 import plotly.graph_objects as go
-import dash_mantine_components as dmc
-from dash_mantine_components import Group, Anchor
-from dash_iconify import DashIconify
 from textwrap import wrap
 
 
