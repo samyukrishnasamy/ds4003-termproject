@@ -44,6 +44,9 @@ navigation_bar = html.Div([
             html.Button('More Information', id='button-4', n_clicks=0, className='btn btn-primary m-1'),
         ], style={'display': 'flex', 'gap': '10px'}),
         # GitHub and Original Data Link
+        
+        html.Div(style={'flexGrow': 1}),
+        
         html.Div([
             html.A(
                 children=[html.I(className="fab fa-github")],  # FontAwesome icon with text
@@ -57,8 +60,8 @@ navigation_bar = html.Div([
                 target='_blank',
                 style={'textDecoration': 'none', 'color': 'black'}  # Consistent styling for all anchors
             ),
-        ], style={'flexGrow': 1}),
-    ], className='d-flex justify-content-between bg-light p-3 rounded')
+        ], style={'display': 'flex', 'gap': '10px}),
+    ])#, className='d-flex justify-content-between bg-light p-3 rounded')
 ], style={
         'display': 'flex',
         'justifyContent': 'space-between',
