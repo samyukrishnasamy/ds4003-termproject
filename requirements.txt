@@ -4,4 +4,5 @@ pandas
 scikit_learn
 plotly
 gunicorn
-plotly.graph_objects
+plotly-geo
+
