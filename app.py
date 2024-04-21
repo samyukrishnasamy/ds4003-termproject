@@ -7,7 +7,7 @@ from textwrap import wrap
 
 
 
-df = pd.read_csv("/Users/samyukrishnasamy/Downloads/data.csv")
+df = pd.read_csv("data.csv")
 
 stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
