@@ -11,7 +11,7 @@ from textwrap import wrap
 
 df = pd.read_csv("data.csv")
 
-stylesheets = [dbc.themes.BOOTSTRAP, 'https://codepen.io/chriddyp/pen/bWLwgP.css']
+stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 # Initialize Dash app
 app = Dash(__name__, external_stylesheets=stylesheets, suppress_callback_exceptions=True)
