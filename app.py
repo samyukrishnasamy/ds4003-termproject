@@ -60,7 +60,7 @@ navigation_bar = html.Div([
                 target='_blank',
                 style={'textDecoration': 'none', 'color': 'black'}  # Consistent styling for all anchors
             ),
-        ], style={'display': 'flex', 'gap': '10px}),
+        ], style={'display': 'flex', 'gap': '10px'}),
     ])#, className='d-flex justify-content-between bg-light p-3 rounded')
 ], style={
         'display': 'flex',
