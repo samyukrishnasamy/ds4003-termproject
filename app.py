@@ -57,19 +57,19 @@ navigation_bar = html.Div([
                 target='_blank',
                 style={'textDecoration': 'none', 'color': 'black'}  # Consistent styling for all anchors
             ),
-        ], style={'display': 'flex', 'gap': '10px'}),
+        ], style={'flexGrow': 1}),
     ], className='d-flex justify-content-between bg-light p-3 rounded')
 ], style={
         'display': 'flex',
         'justifyContent': 'space-between',
         'alignItems': 'center',
         'padding': '10px',
-        'backgroundColor': '#f8f9fa',  # Light grey background
-        'boxShadow': '0 2px 4px rgba(0,0,0,.1)',  # Shadow for depth
-        'position': 'fixed',  # Fixed to the top
+        'backgroundColor': '#f8f9fa',
+        'boxShadow': '0 2px 4px rgba(0,0,0,.1)', 
+        'position': 'fixed', 
         'width': '100%',
-        'zIndex': 1000,  # Ensure it's above other content
-        'boxSizing': 'border-box',  # Include padding in width calculation
+        'zIndex': 1000, 
+        'boxSizing': 'border-box', 
     })
 
 font_awesome = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
