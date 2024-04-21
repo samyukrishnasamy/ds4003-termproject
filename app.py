@@ -46,13 +46,13 @@ navigation_bar = html.Div([
         # GitHub and Original Data Link
         html.Div([
             html.A(
-                children=[html.I(className="fab fa-github"), " GitHub"],  # FontAwesome icon with text
+                children=[html.I(className="fab fa-github")],  # FontAwesome icon with text
                 href='https://github.com/samyukrishnasamy/ds4003-termproject',
                 target='_blank',
                 style={'textDecoration': 'none', 'color': 'black', 'marginRight': '20px'}  # Style to make the anchor text look better
             ),
             html.A(
-                children="Visit The Squirrel Census",
+                children="Original Dataset",
                 href='https://www.thesquirrelcensus.com/',
                 target='_blank',
                 style={'textDecoration': 'none', 'color': 'black'}  # Consistent styling for all anchors
