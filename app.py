@@ -41,7 +41,7 @@ marks = {i: {'label': date.strftime('%m/%d'), 'style': {'white-space': 'nowrap'}
 # %%
 #### APP ####
 
-#server = app.server
+server = app.server
 
 # Navigation bar and page layout
 navigation_bar = html.Div([
@@ -492,7 +492,6 @@ def update_line_graph(slider_range):
 
 # %%
 if __name__ == '__main__':
-    #app.run_server(debug=True)
-    app.run(debug=True, port=8051)
+    app.run_server(debug=True)
 
 
