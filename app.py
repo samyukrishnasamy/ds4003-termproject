@@ -271,7 +271,7 @@ def display_content(btn0, btn1, btn2, btn3, btn4):
                         target='_blank',
                         style={'textDecoration': 'none', 'color': 'darkblue'}
                     )
-                ], style={'marginTop': '150px'})
+                ], style={'marginTop': '250px'})
             ], style={'flex': '70%'}),
             
             # Right side column for GIF
