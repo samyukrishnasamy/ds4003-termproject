@@ -8,6 +8,7 @@ from textwrap import wrap
 df = pd.read_csv("data/data.csv")
 
 stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+font_awesome = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 
 # Initialize Dash app
 app = Dash(__name__, external_stylesheets=stylesheets, suppress_callback_exceptions=True)
@@ -43,7 +44,7 @@ marks = {i: {'label': date.strftime('%m/%d'), 'style': {'white-space': 'nowrap'}
 
 server = app.server
 
-# Navigation bar and page layout
+# Navigation Bar
 navigation_bar = html.Div([
     html.Div([
         # Buttons
@@ -70,7 +71,7 @@ navigation_bar = html.Div([
         'zIndex': 1000, 
     })
 
-font_awesome = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+# App Layout
 app.layout = html.Div(
     html.Div([
         html.Link(rel='stylesheet', href=font_awesome),
@@ -104,6 +105,7 @@ app.layout = html.Div(
      Input('button-4', 'n_clicks')]
 )
 
+
 # Displays one background (clouds + words and image) for the homepage and another for the other pages (just the clouds)
 def display_content(btn0, btn1, btn2, btn3, btn4):
     ctx = callback_context
@@ -135,8 +137,7 @@ def display_content(btn0, btn1, btn2, btn3, btn4):
     # Home Page #
     if button_id == 'button-0':
         content = html.Div([
-            #html.H1('Welcome to the Squirrel Dashboard', style={'textAlign': 'center', 'font-family': 'Impact', 'color': 'darkblue'}),
-            #html.P("This dashboard provides insights into squirrel sightings in Central Park. Navigate using the buttons above to explore different views and data.", style={'textAlign': 'center'}),
+                 
         ])
     
     # Squirrel Map #
@@ -225,6 +226,7 @@ def display_content(btn0, btn1, btn2, btn3, btn4):
                 # Line Graph
                 dcc.Graph(id='line-graph', style={'height': '500px'}),
                 html.Div([
+                  # Slider for Line Graph
                     dcc.RangeSlider(
                         id='date-range-slider',
                         min=0,
@@ -245,7 +247,6 @@ def display_content(btn0, btn1, btn2, btn3, btn4):
         content = html.Div([
         html.H1('More Information', style={'textAlign': 'center', 'font-family': 'Impact', 'color': 'darkblue'}),
         html.Div([
-            # Left side column
             html.Div([
                 # Description of Data
                 html.Div([
@@ -274,7 +275,7 @@ def display_content(btn0, btn1, btn2, btn3, btn4):
                 ], style={'marginTop': '250px'})
             ], style={'flex': '70%'}),
             
-            # Right side column for GIF
+            # GIF
             html.Div([
                 html.Img(src='/assets/squirrel-eating.gif', style={'width': '100%', 'height': 'auto'})
             ], style={'flex': '30%'})
@@ -286,7 +287,7 @@ def display_content(btn0, btn1, btn2, btn3, btn4):
 
 # %%
 ### MAP ###
-
+# Callback for Map
 @app.callback(
     Output('squirrel-map', 'figure'),
     [Input('hectare-dropdown', 'value')]
@@ -312,7 +313,6 @@ def update_map(selected_hectare):
         filtered_df = df
 
 
-    # Define the figure, set color based on the hectare or to dark blue
     if selected_hectare == 'All':
         # Color by hectare if 'All' is selected
         fig = px.scatter_mapbox(
@@ -347,7 +347,7 @@ def update_map(selected_hectare):
 
 # %%
 ### BAR GRAPH ###
-
+# Specifies the color scheme of the bar chart
 age_color_map = {
     'Juvenile': 'lightblue', 
     'Adult': 'darkblue'       
@@ -405,12 +405,13 @@ def update_figure(selected_location, selected_age):
 
 # %%
 ### DATA TABLE ###
-
+# Uses data from the dropdowns
 @app.callback(
     Output('data-table', 'data'),
     [Input('location', 'value'),
      Input('age', 'value')]
 )
+# Update table based on callback
 def update_table(selected_fur_colors, selected_ages):
     filtered_df = df[df['location'].isin(selected_fur_colors) & df['age'].isin(selected_ages)]
     return filtered_df.to_dict('records')
@@ -425,9 +426,10 @@ dash_table.DataTable(
 
 # %%
 ### PIE CHART ###
-
+#Call back for Pie Chart
 @callback(Output('tabs-content', 'children'),
           Input('tabs', 'value'))
+#Filters based on the tab (sound made)
 def render_content(tab):
     if tab == 'tab-kuk':
         counts = df[df['sound_kuk']]['shift'].value_counts().reset_index()
@@ -462,11 +464,12 @@ def render_content(tab):
 
 # %%
 ### LINE GRAPH ###
+# Call back for Line Graph
 @app.callback(
     Output('line-graph', 'figure'),
     [Input('date-range-slider', 'value')]
 )
-
+# Update Line Graph based on Callback
 def update_line_graph(slider_range):
     fig = px.line(
         full_df[slider_range[0]:slider_range[1]],
