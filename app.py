@@ -5,7 +5,7 @@ import plotly.express as px
 from dash import dash, Dash, dcc, html, Input, Output, callback, callback_context, dash_table, State
 from textwrap import wrap
 
-df = pd.read_csv("/Users/samyukrishnasamy/Downloads/data.csv")
+df = pd.read_csv("/data/data.csv")
 
 stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
